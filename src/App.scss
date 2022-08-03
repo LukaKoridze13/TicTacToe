@@ -1,0 +1,136 @@
+// FONT
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+$font: 'Outfit', sans-serif;
+// COLORS
+$darknavy: #1A2A33;
+$darkblue: #31C3BD;
+$blue: #65E9E4;
+$darkyellow: #F2B137;
+$yellow: #FFC860;
+$semidarknavy: #1F3641;
+$silver: #A8BFC9;
+$white: #DBE8ED;
+
+// GLOBAL STYLES
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $darknavy;
+}
+
+// NEW GAME BUTTON COMPONENT STYLES
+.newGameBTN {
+    height: 67px;
+    width: 460px;
+    border-radius: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    font-family: $font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    color: $darknavy;
+    cursor:pointer;
+}
+
+// START PAGE
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .pick {
+        width: 460px;
+        height: 205px;
+        padding: 24px;
+        background: $semidarknavy;
+        box-shadow: inset 0px -8px 0px #10212A;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .pick-title {
+            font-family: $font;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: $silver;
+        }
+
+        .x-and-o {
+            width: 412px;
+            height: 72px;
+            margin-top: 24px;
+            background: $darknavy;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .x {
+                width: 198px;
+                height: 54px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            .o {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 198px;
+                height: 54px;
+                border-radius: 10px;
+                cursor: pointer;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+
+        .warning {
+            margin-top: 17px;
+            font-family: $font;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            text-align: center;
+            letter-spacing: 0.875px;
+            mix-blend-mode: normal;
+            opacity: 0.5;
+            color: $silver;
+        }
+    }
+}
