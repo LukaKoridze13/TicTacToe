@@ -10,7 +10,7 @@
 }
 
 .newGameBTN {
-  height: 67px;
+  height: 56px;
   width: 460px;
   border-radius: 15px;
   border-radius: 15px;
@@ -26,6 +26,46 @@
   text-transform: uppercase;
   color: #1A2A33;
   cursor: pointer;
+}
+
+.stats {
+  height: 72px;
+  width: 140px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.stats p {
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  color: #1A2A33;
+}
+.stats span {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  color: #1A2A33;
+}
+
+.box {
+  cursor: pointer;
+  background: #1F3641;
+  box-shadow: inset 0px -8px 0px #10212A;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
 .main {
@@ -109,4 +149,75 @@
   mix-blend-mode: normal;
   opacity: 0.5;
   color: #A8BFC9;
+}
+
+.vs-player {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.vs-player header {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vs-player header .turn {
+  height: 52px;
+  width: 140px;
+  background: #1F3641;
+  box-shadow: inset 0px -4px 0px #10212A;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+.vs-player header .turn img {
+  width: 20px;
+  height: 20px;
+}
+.vs-player header .turn p {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #A8BFC9;
+}
+.vs-player header .reset {
+  width: 52px;
+  height: 52px;
+  background: #A8BFC9;
+  box-shadow: inset 0px -4px 0px #6B8997;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+.vs-player .area {
+  margin-top: 20px;
+  width: 100vw;
+  max-width: 460px;
+  aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+.vs-player footer {
+  margin-top: 19px;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }/*# sourceMappingURL=App.css.map */

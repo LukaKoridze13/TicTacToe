@@ -1,0 +1,20 @@
+@media (max-width:480px) {
+    .newGameBTN{
+        width: 327px;
+    }
+    .main{
+        .pick{
+            width: 327px;
+        }
+        .x-and-o {
+            width: 279px !important;
+            .x {
+                width: 131px !important;
+            }
+            .o {
+                width: 131px !important;
+            }
+        }
+
+    }
+}
