@@ -29,7 +29,6 @@ export default function Start(props) {
     props.mark('o')
     setDone(true)
   }
-
   return (
     <div className="main">
       <img src={Logo} alt="XO Logo" className="logo" />

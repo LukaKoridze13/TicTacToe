@@ -1,30 +1,39 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react'
 import OutlineX from '../../Images/x-outline.svg'
 import OutlineO from '../../Images/o-outline.svg'
 import X from '../../Images/x.svg'
 import O from '../../Images/o.svg'
+import { Context } from '../../Context';
+import { logRoles } from '@testing-library/react'
+
 export default function Box(props) {
-    const [hover,setHover] = useState(OutlineX)
-    const [src,setSrc] = useState('')
-    const [done, setDone] = useState(false)
+    const [hover, setHover] = useState(OutlineX)
+    const [src, setSrc] = useState('')
+    let cont = useContext(Context)
+
     let ref = useRef()
-    function draw(){
-        if(props.turn === 'x'){
+    function draw() {
+        if (props.turn === 'x') {
             setSrc(X)
-        }else{
+        } else {
             setSrc(O)
         }
     }
-    useEffect(()=>{
-        if(props.turn==='x'){
+    function disable(e) {
+        draw();
+        props.pusher(props.turn, props.unique);
+        props.func();
+        e.target.setAttribute('disabled', true);
+    }
+    useEffect(() => {
+        if (props.turn === 'x') {
             setHover(OutlineX)
-        }else{
+        } else {
             setHover(OutlineO)
         }
     })
-  return (
-    <button ref={ref} className="box" onMouseEnter={()=>{if(!done){setSrc(hover)}}} onMouseLeave={()=>{if(!done){setSrc('')}}} onClick={(e)=>{if(!done){draw(); props.pusher(props.turn,props.unique); setDone(true);props.func() }}}>
-        <img src={src}  />
-    </button>
-  )
+    return (
+        <button ref={ref} className="box" onMouseEnter={(e) => { if (!ref.current.disabled) { setSrc(hover) } }} onMouseLeave={(e) => { if (!ref.current.disabled) { setSrc('') } }} onClick={(e) => { disable(e) }} style={{backgroundImage:`url(${src})`}}>
+        </button>
+    )
 }

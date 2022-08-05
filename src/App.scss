@@ -77,14 +77,14 @@ $white: #DBE8ED;
 // box
 .box {
     cursor: pointer;
-    background: $semidarknavy;
+    background-color: $semidarknavy;
     box-shadow: inset 0px -8px 0px #10212A;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: none;
-    
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-position: center;
+
 }
 
 // START PAGE
@@ -256,5 +256,194 @@ $white: #DBE8ED;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+// MESSAGE PVP
+.messagePVP {
+    width: 100vw;
+    height: 266px;
+    max-width: 1920px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    background-color: $semidarknavy;
+    padding: 45px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    p {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $silver;
+    }
+
+    span {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: #31C3BD;
+        margin-left: 23px;
+    }
+
+    img {
+        width: 55px;
+        height: 55px;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: $silver;
+    }
+}
+
+// QUIT
+.quit {
+    height: 52px;
+    width: 76px;
+    border-radius: 10px;
+    background: $silver;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    /* Dark Navy */
+
+    color: #1A2A33;
+}
+
+// NEXT ROUND
+.nextRound {
+    height: 52px;
+    width: 146px;
+    border-radius: 10px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1A2A33;
+}
+
+// MESSAGE RESTART
+.restart {
+    width: 100vw;
+    height: 266px;
+    max-width: 1920px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    background-color: $semidarknavy;
+    padding: 45px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    div{
+        width: fit-content;
+        margin: 0 auto;
+    }
+    p {
+        /* Heading (Large) */
+
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+
+        /* Silver */
+
+        color: #A8BFC9;
+    }
+
+    .cancel {
+        background: #A8BFC9;
+        box-shadow: inset 0px -4px 0px #6B8997;
+        height: 52px;
+        width: 139px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        /* Heading (Extra Small) */
+
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        /* Dark Navy */
+
+        color: #1A2A33;
+    }
+
+    .yes {
+        height: 52px;
+        width: 151px;
+        border-radius: 10px;
+        background: #F2B137;
+        box-shadow: inset 0px -4px 0px #CC8B13;
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        /* Dark Navy */
+        cursor: pointer;
+        border:none;
+        color: #1A2A33;
+        margin-left: 16px;
     }
 }
