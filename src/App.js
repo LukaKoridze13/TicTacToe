@@ -4,10 +4,10 @@ import {Routes,Route} from 'react-router-dom'
 import './Responsive.css'
 import './reset.css'
 import { useState } from 'react';
-import VsCPU from './Pages/VsCPU';
+import VsCPUX from './Pages/VsCPUX';
 import VsPlayer from './Pages/VsPlayer';
-import Quit from './Pages/Components/Quit';
 import {Context} from './Context'
+import VsCPUO from './Pages/VsCPUO';
 
 function App() {
   const [mark,setMark] =  useState()
@@ -28,8 +28,9 @@ function App() {
     <Context.Provider value={{quit: quit, mark:mark, setReset:setReset, reset:reset}} >
     <div className="container">
       <Routes>
-        <Route path='/TicTacToe' element={<Start mark={marking} mode={moding} />} />
-        <Route path='/TicTacToe/PlayerVsCPU'  element={<VsCPU />} />
+        <Route path='/TicTacToe' element={<Start mark={marking} mode={moding} marker={mark} />} />
+        <Route path='/TicTacToe/PlayerVsCPUX'  element={<VsCPUX player1={mark} />} />
+        <Route path='/TicTacToe/PlayerVsCPUO'  element={<VsCPUO player1={mark} />} />
         <Route path='/TicTacToe/PlayerVsPlayer' element={<VsPlayer player1={mark} />} />
       </Routes>
     </div>

@@ -447,3 +447,19 @@ $white: #DBE8ED;
         margin-left: 16px;
     }
 }
+
+
+.xBackground{
+    background-image: url('./Images/x.svg') !important;
+    pointer-events: none;
+}
+.oBackground{
+    background-image: url('./Images/o.svg') !important;
+    pointer-events: none;
+}
+.hovx:hover{
+    background-image: url('./Images/x-outline.svg');
+}
+.hovo:hover{
+    background-image: url('./Images/o-outline.svg');
+}

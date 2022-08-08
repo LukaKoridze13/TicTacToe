@@ -5,13 +5,14 @@ export default function NextRound(props) {
   let cont=useContext(Context)
   useEffect(()=>{
     for(let x of document.querySelectorAll('.box')){
-      x.setAttribute('disabled', true)
+      x.style.pointerEvents='none'
     }
   })
   function next(){
     for(let x of document.querySelectorAll('.box')){
-      x.removeAttribute('disabled')
-      x.style.backgroundImage= ''
+      x.classList.remove('xBackground')
+      x.classList.remove('oBackground')
+      x.style.pointerEvents='all'
     }
   }
   return (

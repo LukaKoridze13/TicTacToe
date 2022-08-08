@@ -5,35 +5,39 @@ import X from '../../Images/x.svg'
 import O from '../../Images/o.svg'
 import { Context } from '../../Context';
 import { logRoles } from '@testing-library/react'
+import { click } from '@testing-library/user-event/dist/click'
 
 export default function Box(props) {
-    const [hover, setHover] = useState(OutlineX)
-    const [src, setSrc] = useState('')
-    let cont = useContext(Context)
-
-    let ref = useRef()
-    function draw() {
+    function click(e) {
+        e.target.classList.remove('hovx')
+        e.target.classList.remove('hovo')
         if (props.turn === 'x') {
-            setSrc(X)
+            e.target.classList.add('xBackground')
         } else {
-            setSrc(O)
+            e.target.classList.add('oBackground')
+        }
+        props.pusher(props.turn, props.unique)
+        props.func()
+        props.check()
+    }
+    function moveIn(e) {
+        if (!e.target.classList.contains('xbackground') && !e.target.classList.contains('xbackground')) {
+            if (props.turn === 'x') {
+                e.target.classList.add('hovx')
+            } else {
+                e.target.classList.add('hovo')
+            }
         }
     }
-    function disable(e) {
-        draw();
-        props.pusher(props.turn, props.unique);
-        props.func();
-        e.target.setAttribute('disabled', true);
-    }
-    useEffect(() => {
-        if (props.turn === 'x') {
-            setHover(OutlineX)
-        } else {
-            setHover(OutlineO)
+    function moveOut(e) {
+        if (!e.target.classList.contains('xbackground') && !e.target.classList.contains('xbackground')) {
+            e.target.classList.remove('hovx')
+            e.target.classList.remove('hovo')
         }
-    })
+    }
     return (
-        <button ref={ref} className="box" onMouseEnter={(e) => { if (!ref.current.disabled) { setSrc(hover) } }} onMouseLeave={(e) => { if (!ref.current.disabled) { setSrc('') } }} onClick={(e) => { disable(e);props.check() }} style={{backgroundImage:`url(${src})`}}>
-        </button>
+        <div className="box" onClick={(e) => { click(e) }} onMouseOver={(e) => { moveIn(e) }} onMouseLeave={(e) => { moveOut(e) }}>
+
+        </div>
     )
 }

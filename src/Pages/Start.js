@@ -13,6 +13,12 @@ export default function Start(props) {
   const [o, setO] = useState(Osilver)
   const [done, setDone] = useState(false)
   const xRef = useRef()
+  let nav;
+  if(props.marker==='x'){
+    nav='PlayerVsCPUX'
+  }else{
+    nav= 'PlayerVsCPUO'
+  }
   function clickX() {
     setXColor('#A8BFC9')
     setX(Xblack)
@@ -46,7 +52,7 @@ export default function Start(props) {
         </div>
         <p className="warning">REMEMBER : X GOES FIRST</p>
       </div>
-      <NewGame func={props.mode} go='PlayerVsCPU' sym='cpu' text='NEW GAME (VS CPU)' shadow='#CC8B13' color='#F2B137' margin='40px' />
+      <NewGame func={props.mode} go={nav} sym='cpu' text='NEW GAME (VS CPU)' shadow='#CC8B13' color='#F2B137' margin='40px' />
       <NewGame func={props.mode} go='PlayerVsPlayer' sym='pvp' text='NEW GAME  (VS PLAYER)' shadow='#118C87' color='#31C3BD' margin='20px' />
     </div>
   )
