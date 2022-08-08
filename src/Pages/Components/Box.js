@@ -33,7 +33,7 @@ export default function Box(props) {
         }
     })
     return (
-        <button ref={ref} className="box" onMouseEnter={(e) => { if (!ref.current.disabled) { setSrc(hover) } }} onMouseLeave={(e) => { if (!ref.current.disabled) { setSrc('') } }} onClick={(e) => { disable(e) }} style={{backgroundImage:`url(${src})`}}>
+        <button ref={ref} className="box" onMouseEnter={(e) => { if (!ref.current.disabled) { setSrc(hover) } }} onMouseLeave={(e) => { if (!ref.current.disabled) { setSrc('') } }} onClick={(e) => { disable(e);props.check() }} style={{backgroundImage:`url(${src})`}}>
         </button>
     )
 }

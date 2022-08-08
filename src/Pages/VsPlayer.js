@@ -21,6 +21,7 @@ export default function VsPlayer(props) {
   const [tie, setTie] = useState(false)
   const [round, setRound] = useState([false, null, null])
   const [restart,setRestart] =  useState(false)
+
   let playerOne;
   let playerTwo;
   if (props.player1 === 'x') {
@@ -31,6 +32,7 @@ export default function VsPlayer(props) {
     playerTwo = 'P1'
   }
   function check() {
+    let shouldReturn = false;
     conditions.map((item) => {
       let x = 0;
       item.map((item) => {
@@ -44,9 +46,10 @@ export default function VsPlayer(props) {
         setRound([true, 'x', playerOne])
         setxID([])
         setoID([])
-
+        shouldReturn=true;
       }
     })
+    if(shouldReturn){return shouldReturn}
     conditions.map((item) => {
       let o = 0;
       item.map((item) => {
@@ -61,10 +64,13 @@ export default function VsPlayer(props) {
         setRound([true, 'o', playerTwo])
         setxID([])
         setoID([])
+        shouldReturn=true;
       }
     })
-    if ((!oWin && !xWin) && (xId.length === 5)) {
+    if(shouldReturn){return shouldReturn}
 
+    if ((!oWin && !xWin) && (xId.length === 5 && oId.length === 4)) {
+      console.log('test')
       setTie(true)
       setScoreTies(scoreTies + 1)
       setRound([true, 'tie', 'ROUND TIED'])
@@ -93,9 +99,6 @@ export default function VsPlayer(props) {
     setOWin(false)
     setXWin(false)
   }
-  useEffect(() => {
-    check()
-  })
   return (
     <section className='vs-player' style={{ position: 'relative' }}>
       <header>
@@ -108,7 +111,7 @@ export default function VsPlayer(props) {
           <img src={Restart} alt="Restart" />
         </button>
       </header>
-      <Area turn={turn} changeTurn={changeTurn} pusher={pusher} />
+      <Area turn={turn} changeTurn={changeTurn} pusher={pusher} check={check} />
       <footer>
         <Stats who={`X (${playerOne})`} point={scoreX} color='#31C3BD' />
         <Stats who='Ties' point={scoreTies} color='#A8BFC9' />

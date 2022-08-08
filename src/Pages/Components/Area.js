@@ -6,7 +6,7 @@ export default function Area(props) {
   return (
     <div className="area">
         {boxes.map((box,index)=>{
-            return <Box turn={props.turn} func={props.changeTurn} key={index}  unique={index+1} pusher={props.pusher}/>
+            return <Box turn={props.turn} func={props.changeTurn} key={index}  unique={index+1} pusher={props.pusher} check={props.check}/>
         })}
     </div>
   )
