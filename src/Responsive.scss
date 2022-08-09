@@ -17,4 +17,29 @@
         }
 
     }
+    header{
+        padding: 0px 10px !important;
+    }
+    .area{
+        padding: 0px 10px !important;
+    }
+    .box{
+        background-size: 40px 40px !important;
+    }
+    .stats{
+        width: 90px;
+    }
+    footer{
+        padding: 0px 10px !important;
+        justify-content: space-around !important;
+    }
+    .messagePVP{
+        span{
+            font-size: 24px !important;
+        }
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
