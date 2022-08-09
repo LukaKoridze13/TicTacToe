@@ -5,9 +5,9 @@ import SilverO from '../Images/o-silver.svg'
 import Restart from '../Images/restart.svg'
 import Area from './Components/Area'
 import Stats from './Components/Stats'
-import EndMessagePVP from './Components/EndMessagePVP'
+import EndMessagePVC from './Components/EndMessagePVC'
 import Restarter from './Components/Restart'
-export default function VsCPUO(props) {
+export default function VsCPUX(props) {
     let conditions = [[1, 2, 3], [1, 5, 9], [1, 4, 7], [2, 5, 8], [3, 5, 7], [3, 6, 9], [4, 5, 6], [7, 8, 9]]
     const [turn, setTurn] = useState('x');
     const [scoreX, setScoreX] = useState(0)
@@ -68,7 +68,6 @@ export default function VsCPUO(props) {
         if (shouldReturn) { return shouldReturn }
 
         if ((!oWin && !xWin) && (xId.length === 5 && oId.length === 4)) {
-            console.log('test')
             setTie(true)
             setScoreTies(scoreTies + 1)
             setRound([true, 'tie', 'ROUND TIED'])
@@ -96,16 +95,13 @@ export default function VsCPUO(props) {
         setRound([false, null, null])
         setOWin(false)
         setXWin(false)
+        setxID([])
+        setoID([])
     }
     useEffect(() => {
-        console.log(xId,oId)
-        let go = true;
-        if (turn === 'x') {
-            if (!xId.includes(5)) {
-                document.querySelectorAll('.box')[4].click()
-                go = false;
-            }
-            if (go) {
+        let done = false;
+        if (turn === 'x' && xId.length <= 5) {
+            if (!done) {
                 conditions.map((item) => {
                     let first = false;
                     let second = false;
@@ -118,7 +114,7 @@ export default function VsCPUO(props) {
                     })
                     if (should !== false) {
                         item.map((items, index) => {
-                            if (xId.includes(items) && !go) {
+                            if (xId.includes(items) && !done) {
                                 if (index === 0) {
                                     first = true;
                                 } else if (index === 1) {
@@ -127,23 +123,103 @@ export default function VsCPUO(props) {
                                     third = true;
                                 }
                                 if (first === true && second === true) {
-                                    document.querySelectorAll('.box')[item[2] - 1].click();                                  
-                                    go = true;
+                                    document.querySelectorAll('.box')[item[2] - 1].click();
+                                    done = true;
                                 } else if (second === true && third === true) {
-                                    document.querySelectorAll('.box')[item[0] - 1].click();         
-                                    go = true;
+                                    document.querySelectorAll('.box')[item[0] - 1].click();
+                                    done = true;
                                 } else if (third === true && first === true) {
                                     document.querySelectorAll('.box')[item[1] - 1].click();
-                                    go= true;
+                                    done = true;
                                 }
                             }
                         })
                     }
                 })
             }
-        }
+            if (!done) {
+                conditions.map((item) => {
+                    let first;
+                    let second;
+                    let third;
+                    let should;
+                    item.map((items) => {
+                        if (xId.includes(items)) {
+                            should = false;
+                        }
+                    })
+                    if (should !== false) {
+                        item.map((items, index) => {
+                            if (oId.includes(items) && !done) {
+                                if (index === 0) {
+                                    first = true;
+                                } else if (index === 1) {
+                                    second = true;
+                                } else {
+                                    third = true;
+                                }
+                                if (first === true && second === true) {
+                                    document.querySelectorAll('.box')[item[2] - 1].click();
+                                    done = true;
+                                } else if (second === true && third === true) {
+                                    document.querySelectorAll('.box')[item[0] - 1].click();
+                                    done = true;
+                                } else if (third === true && first === true) {
+                                    document.querySelectorAll('.box')[item[1] - 1].click();
+                                    done = true;
+                                }
+                            }
+                        })
+                    }
 
-    })
+                })
+            }
+            if (!done && xId.length === 0) {
+                document.querySelectorAll('.box')[4].click();
+                done = true;
+
+            }
+            if (!done && oId.length === 1) {
+                if (oId.indexOf(1) === -1) {
+                    document.querySelectorAll('.box')[0].click();
+                    done = true;
+                }else{
+                    document.querySelectorAll('.box')[2].click();
+                    done = true;
+                }
+            }
+            if (!done && oId.length === xId.length) {
+                if (oId.indexOf(2) === -1 && xId.indexOf(2) === -1) {
+                    document.querySelectorAll('.box')[1].click();
+                    done = true;
+                }else if(oId.indexOf(1) === -1 && xId.indexOf(1) === -1){
+                    document.querySelectorAll('.box')[0].click();
+                    done = true;
+                }else if(oId.indexOf(3) === -1 && xId.indexOf(3) === -1){
+                    document.querySelectorAll('.box')[2].click();
+                    done = true;
+                }else if(oId.indexOf(4) === -1 && xId.indexOf(4) === -1){
+                    document.querySelectorAll('.box')[3].click();
+                    done = true;
+                }else if(oId.indexOf(5) === -1 && xId.indexOf(5) === -1){
+                    document.querySelectorAll('.box')[4].click();
+                    done = true;
+                }else if(oId.indexOf(6) === -1 && xId.indexOf(6) === -1){
+                    document.querySelectorAll('.box')[5].click();
+                    done = true;
+                }else if(oId.indexOf(7) === -1 && xId.indexOf(7) === -1){
+                    document.querySelectorAll('.box')[6].click();
+                    done = true;
+                }else if(oId.indexOf(8) === -1 && xId.indexOf(8) === -1){
+                    document.querySelectorAll('.box')[7].click();
+                    done = true;
+                }else if(oId.indexOf(9) === -1 && xId.indexOf(9) === -1){
+                    document.querySelectorAll('.box')[8].click();
+                    done = true;
+                }
+            }
+        }
+    },[turn])
     return (
         <section className='vs-player' style={{ position: 'relative' }}>
             <header>
@@ -158,11 +234,11 @@ export default function VsCPUO(props) {
             </header>
             <Area turn={turn} changeTurn={changeTurn} pusher={pusher} check={check} />
             <footer>
-                <Stats who={`X (${playerOne})`} point={scoreX} color='#31C3BD' />
+                <Stats who={`X (CPU)`} point={scoreX} color='#31C3BD' />
                 <Stats who='Ties' point={scoreTies} color='#A8BFC9' />
-                <Stats who={`O (${playerTwo})`} point={scoreO} color='#F2B137' />
+                <Stats who={`O (Player)`} point={scoreO} color='#F2B137' />
             </footer>
-            {round[0] && <EndMessagePVP winnerMark={round[1]} winnerPlayer={round[2]} nextRound={nextRound} setTurn={setTurn} />}
+            {round[0] && <EndMessagePVC winnerMark={round[1]} winnerPlayer={round[2]} nextRound={nextRound} setTurn={setTurn} />}
             {restart && <Restarter onClick={setRestart} nextRound={nextRound} setTurn={setTurn} />}
         </section>
     )
