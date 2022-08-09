@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react'
 import { Context } from '../../Context';
 import { useContext } from 'react';
+import X from '../../Images/x.svg'
+import O from '../../Images/o.svg'
 export default function NextRound(props) {
   let cont=useContext(Context)
   useEffect(()=>{
+    if(document.querySelectorAll('.box')[0].classList.contains('xBackground') && document.querySelectorAll('.box')[0].classList.contains('oBackground')){
+      document.querySelectorAll('.box')[0].classList.remove('oBackground')
+    }
     for(let x of document.querySelectorAll('.box')){
       x.style.pointerEvents='none'
     }
